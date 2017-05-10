@@ -20,11 +20,11 @@
 
 * 스스로 발전하는 것이 목표이므로 쉽고 간단한 것이라도 스스로 해보는 방식으로 진행
 
-### 범주
+### 범위
 
 * 데이터 크롤링 (Data Crawling)
 
 * 데이터 정제 (Data Cleaning)
 
-* 데이터 시각화 (Data Visualization) 
+* 데이터 시각화 (Data Visualization)
 
