@@ -6,9 +6,8 @@ output: github_document
 
 #### Issue
 
-CSS Selector로 쉽게 크롤링하려고 했지만 웹페이지의 비효율적 구조로 문제가 있음 
-
-loop within loop를 활용해야만 했던 과정의 코드 공유
++ CSS Selector로 쉽게 크롤링하려고 했지만 웹페이지의 비효율적 구조로 문제가 있음 
++ loop within loop를 활용해야만 했던 과정의 코드 공유
 
 
 #### Summary
