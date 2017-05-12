@@ -12,7 +12,7 @@ places_edit <- strsplit(places, "-")
 unlist(places_edit)
 
 #################################################################
-# stringr 
+# stringr에서 split 관련 함수 
 #################################################################
 #str_split 함수(stringr)에서 simplify 옵션 추가하면 list가 아닌 matrix로 구분시킴 (권장)
 str_split(places, "-", simplify = TRUE)
@@ -25,4 +25,35 @@ places_edit2
 # str_split_fixed 함수에서 데이터가 data.frame일때(x)
 places_edit3 <- str_split_fixed(df_places, "-", 3)
 places_edit3
+
+#################################################################
+# stringr에서 sub 관련 함수 
+#################################################################
+
+yw <- "Bae Yeowoon"
+
+firstNM <- str_sub(yw, 1, 3)
+firstNM
+
+LastNM <- str_sub(yw, 5, 11)
+LastNM
+
+# negative indices
+firstNM2 <- str_sub(yw, -7)
+firstNM2
+
+LastNM2 <- str_sub(yw, -11, -9)
+LastNM2
+
+#################################################################
+# stringr에서 subset 관련 함수 
+#################################################################
+
+friends <- c("배여운", "임송이", "오나", "배오나", "오나배")
+str_subset(friends, "배")
+str_which(friends, "오")
+str_subset(friends, "^오")
+str_subset(friends, "나$")
+str_subset(friends, "임")
+str_subset(friends, "[배임]")
 
