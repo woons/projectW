@@ -3,13 +3,17 @@ Day2 Exercise
 
 #### Issue
 
--   R Cookbook을 레퍼런스로 실습
--   CSS Selector로 쉽게 크롤링하려고 했지만 웹페이지의 비효율적 구조로 문제가 있음
--   loop within loop를 활용해야만 했던 과정의 코드 공유
+-   문자열 처리에 관한 상황에서 효율적인 처리 방법
+-   정규표현식을 공부하기 전에 stringr 패키지를 활용한 구조적 정제
+-   기본함수와 패키지(stringr)
+-   str\_split & str\_split\_fixed
+-   str\_replace & str\_replace\_all & str\_replace\_na
+-   str\_length
+-   str\_trim
+-   str\_extract & str\_extract\_all
+-   paste & paste0
 
 #### Summary
 
--   xpath의 기본적인 문법 이해
--   기본적인 loop의 활용 (반복문 안의 반복문은 처음 해봤지만 괜찮았음)
--   tidyverse와 rvest, httr등 크롤링 관련 패키지 활용
--   stringr을 활용해 디테일한 텍스트 정제
+-   샘플 데이터를 제작하여 실습
+-   꼭 익숙해져야 하는 과정이기 때문에 다양한 상황을 가정하고 진행할 것
