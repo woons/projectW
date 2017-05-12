@@ -26,9 +26,3 @@ places_edit2
 places_edit3 <- str_split_fixed(df_places, "-", 3)
 places_edit3
 
-fruits <- c(
-  "apples and oranges and pears and bananas",
-  "pineapples and mangos and guavas"
-)
-str_split(places, "-")
-str_split(places, "-", simplify = TRUE)
