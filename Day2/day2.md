@@ -7,6 +7,7 @@ Day2 Exercise
 -   정규표현식을 공부하기 전에 stringr 패키지를 활용한 구조적 정제
 -   기본함수와 패키지(stringr)
 -   str\_split & str\_split\_fixed
+-   str\_sub & str\_subset
 -   str\_replace & str\_replace\_all & str\_replace\_na
 -   str\_length
 -   str\_trim
