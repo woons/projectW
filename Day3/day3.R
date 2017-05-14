@@ -16,6 +16,22 @@ apply(df_test, 1, sum) #matrix와 동일한 결과
 #lpply함수는 벡터, 리스트 함수 적용한 뒤에 리스트로 반환
 #######################################################
 
-test2 <- c(5,2,3,1,5,2)
+test2 <- c(5,23,3,1,5,2)
 test2 <- lapply(test2, function(x){x*10})
 unlist(test2)
+
+lapply(test2, nchar)
+
+#######################################################
+#spply함수
+#lappy와 비슷하지만 행렬 혹은 벡터 등의 데이터 타입으로 반환
+#######################################################
+
+x <- sapply(iris[,1:4], mean)
+as.data.frame(x)
+as.data.frame(t(x))
+
+sapply(iris, class) #각 칼럼의 데이터 타입 확인 
+
+y <- sapply(iris[,1:4], function(X){x > 3})
+y
