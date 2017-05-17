@@ -3,9 +3,10 @@ Day6 Exercise
 
 #### Issue
 
-need update
+-   Multi Line Chart in Facet Wrap
+-   Data Manipulation like FiveThirtyEight
 
 #### Summary
 
--   countrycode Package 활용
--   countrycode(dadta, origin, destination)
+-   Facet\_wrap과 효율적인 옵션들 활용
+-   dplyr의 몇 가지 함수들 복습
