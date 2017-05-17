@@ -1,0 +1,13 @@
+---
+title: "Day6 Exercise"
+output: github_document
+---
+
+
+#### Issue
+need update
+
+#### Summary
+
++ countrycode Package 활용
++ countrycode(dadta, origin, destination)
