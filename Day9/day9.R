@@ -8,3 +8,5 @@ library(tidyverse)
 startDate <- as.Date("2017-06-01")
 endDate <- as.Date("2017-06-30")
 seq(startDate, endDate, by="1 days")
+
+#두 날짜 사이의 일자 계산
