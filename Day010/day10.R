@@ -23,8 +23,13 @@ writeLines("This is a really \nreally really \nlong string")
 estimate <- 1.34019029100
 as.character(estimate)
 
-format(estimate, digits = 3)
-format(estimate, digits = 2)
+format(estimate, digits = 5) # 1.3402
+format(estimate, digits = 4) # 1.34
+format(estimate, digits = 3) # 1.34
+format(estimate, digits = 2) # 1.3
+format(estimate, digits = 1) # 1 , 즉 digits는 전체 자리 개수를 의미
+
+format(c(0.0011, 0.011, 1), digits = 1) #하지만 digits=1이라도 다음의 경우는 최소 자리 지수가 보여짐
 
 #Fixed & Scientific format (우리가 일반적으로 사용하는 포맷) 
 # => 19890000000000000000000000000000000km
@@ -36,3 +41,30 @@ formatC(x, format = "f")
 formatC(x, format = "e")
 formatC(x, format = "g")
 format(x)
+
+#format()에서 digit의 기능
+numbers1 <- c(1.001123, 0.32342, 0.000123)
+format(numbers1, digits = 3)
+
+# Some vectors of numbers
+percent_change  <- c(4, -1.91, 3.00, -5.002)
+income <-  c(72.19, 1030.18, 10291.93, 1189192.18)
+p_values <- c(0.12, 0.98, 0.0000191, 0.00000000002)
+
+# Format c(0.0011, 0.011, 1) with digits = 1
+format(c(0.0011, 0.011, 1), digits = 1) #c(0.001, 0.011, 1.000)
+format(c(150, 5, 10, 50000000), digits = 1)
+format(c(0.000234, 0.01, 0.1, 5.3234234), digits = 2) #c(0.00023, 0.01000, 0.10000, 5.32342)
+
+
+# Format c(1.0011, 2.011, 1) with digits = 1
+format(c(1.0011, 2.011, 1), digits = 1)
+
+# Format percent_change 소수점 한자리로 보여주세요
+format(percent_change, digits = 2)
+
+# Format income 정수로 보여주세요 
+format(income, digits = 2)
+
+# Format p_values in fixed format
+format(p_values, scientific = FALSE)
