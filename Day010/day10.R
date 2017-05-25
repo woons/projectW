@@ -63,7 +63,7 @@ format(c(1.0011, 2.011, 1), digits = 1)
 # Format percent_change 소수점 한자리로 보여주세요
 format(percent_change, digits = 2)
 
-# Format income 정수로 보여주세요 
+# Format income 정수로 보여주세요!!
 format(income, digits = 2)
 
 # Format p_values in fixed format
