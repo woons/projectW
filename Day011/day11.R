@@ -68,7 +68,7 @@ my_toppings_and
 
 # Collapse with comma space: these_toppings
 these_toppings <- paste(my_toppings_and, collapse = ", ")
-
+these_toppings
 # Add rest of sentence: my_order
 my_order <- paste("I want to order a pizza with ", these_toppings, ".", sep = "")
 
