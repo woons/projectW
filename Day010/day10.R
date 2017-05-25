@@ -1,6 +1,6 @@
 ###################################
 # Day 10 Exercise
-# -Data Manipulation with stringr
+# -Data Manipulation with stringr.
 # #################################
 
 library(stringr)
