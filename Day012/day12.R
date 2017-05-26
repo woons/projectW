@@ -83,3 +83,12 @@ last_names <- both_names_split[, 1]
 
 address <- c("부산광역시-동래구-안락1동", "서울특별시-마포구-상수동", "서울특별시-구로구-구로5동")
 str_split(address, fixed("-"), n = 3, simplify = TRUE)
+
+words <- str_split(address, fixed("-"))
+lapply(words, length)
+words_lenghts <- lapply(words, str_length)
+lapply(words_lenghts, mean)
+
+#str_split_fixed를 알아보자 (matrix로 만들어줌)
+df_address <- str_split_fixed(address, fixed("-"), 3)
+class(df_address)
