@@ -16,3 +16,4 @@
 * `str_detect`, `str_subset`, `str_count`은 패턴이 필요
  + `str_detect()`는 `TRUE`와 `FALSE`로 반환
  + `str_subset()`은 pattern이 포함된 문자열을 문자로 반환
+ + `str_count()`는 문자열의 해당 문자 개수 벡터로 반환
