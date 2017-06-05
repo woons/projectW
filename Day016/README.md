@@ -28,4 +28,7 @@
 > **SPC**  # A whitespace character  
 > <regex> \s
 
+** devtools::install_github("hadley/neiss")
+
+
  
