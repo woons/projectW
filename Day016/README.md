@@ -1,4 +1,4 @@
-# Day15 Exercise
+# Day16 Exercise
 
 ### Issue
 
@@ -8,12 +8,13 @@
 
 | pattern               | regular expression  | rebus |
 |:--                    |:--                  |:--    |
-| Start of string       |         ^           | START |
-| End of string         |         $           | END |
-| Any single character  |         .           | ANY_CHAR |
-| Zero or More          |         *           | zero_or_more() |
-| One or More           |         +           | one_or_more() |
-| Between n and m times |       {n}{m}        | repeated() |
+| Optional              |         ?           | optional()     |
+| Zero or more          |         *           | zero_or_more() |
+| One or more           |         +           | one_or_more()  |
+| Between n and m times |         {n}{m}      | repeated()     |
 
+* Character Class, Alternation, Repetition
+> or("dog" , "cat")  
+> <regex> [Ae]
 
  
