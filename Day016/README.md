@@ -15,6 +15,17 @@
 
 * Character Class, Alternation, Repetition
 > or("dog" , "cat")  
-> <regex> [Ae]
+> <regex> [Ae]  
+
+* Shortcut
+
+> **DGT**  # A digit  
+> <regex> \d
+
+> **WRD**  # A word character  
+> <regex> \W
+
+> **SPC**  # A whitespace character  
+> <regex> \s
 
  
