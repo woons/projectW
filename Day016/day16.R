@@ -4,6 +4,7 @@
 
 library(rebus)
 library(stringr)
+library(neiss)
 
 #-------------Character Classes--------------------------
 
@@ -56,7 +57,6 @@ not_vowels <- negated_char_class("aeiouAEIOU")
 
 # See names with only vowels
 str_view(boy_names, pattern = exactly(one_or_more(vowels)), match = TRUE)
-str_view(boy_names, pattern = one_or_more(vowels), match = TRUE)
 
 # See names with no vowels
 str_view(boy_names, pattern =  exactly(one_or_more(not_vowels)), match = TRUE)
@@ -70,3 +70,9 @@ stringi::stri_detect_regex(x, rx_start)
 stringi::stri_detect_regex(x, rx_end)
 stringi::stri_detect_regex(x, rx_exact)
 
+mydata <- c("Bae Yeowoon", "Lim Songyi", "bae Ona")
+mypatterns <- char_class("bae")
+str_view(mydata, pattern = mypatterns, match = TRUE)
+
+dd <- c("100d", "5000d", "50t", "392k")
+str_view(dd, pattern = "\[0-9][0-9][0-9][a-z]")
