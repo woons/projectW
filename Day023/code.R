@@ -1,14 +1,10 @@
 # library needed
 library(tidyverse)
 library(stringr)
-
+library(ggrepel)
 #--------------------------------------------------
 # R ggplot2 + Guide to Information Graphics (WSK)
 #--------------------------------------------------
-
-#--------------------
-# Vertical_Bar Chart
-#--------------------
 
 #sample data set1
 animal <- c("Dog", "Cat", "Monkey", "Chicken", "Duck", "Tiger", "Lion")
@@ -30,7 +26,10 @@ company <- rep(company, 6)
 label <- rep(c(1,2,2,2,2,2),6)
 stocks <- data.frame(year, price, company,label)
 dim(stocks)
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # basic bar chart
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 basic.bar <- ggplot(myanimal, aes(x= reorder(animal, -value), y=value, fill=category)) + 
   geom_bar(stat = "identity")
 
@@ -56,16 +55,23 @@ ggplot(myanimal, aes(x= animal, y=value, fill=category)) +
   geom_bar(stat = "identity", width = 0.95) +
   scale_fill_manual(values = c("blue", "purple"))
 
-#-------------------------- END --------------------------
 
-#--------------------
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Line Chart
-#--------------------
-ggplot(stocks, aes(x=year, y=price, group=company), color = label) + 
-  geom_line(stat = "identity", size = 0.4, aes(alpha = label)) + # 투명도를 줄 조건 지정
-  scale_alpha(c(0.3, 1.0)) + # 투명도 조절
-  scale_y_continuous(name = "Stocks in Yeowoon",
-                     breaks = seq(0, max(stocks$price), 10)) +
-  theme(legend.position = "top") +
-  scale_color_manual(values = c("red", "blue"))
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+stocks$label <- as.character(stocks$label) #숫자형은 scale이 잡히기 때문에
+
+View(stocks)
+ggplot(stocks, aes(x=year, y=price, group=company, color = label, label = price)) + 
+  geom_line(stat = "identity", size = 0.8) + 
+  scale_y_continuous(name = "Stocks in Yeowoon",
+                     breaks = seq(0, max(stocks$price), 10),
+                     limits = c(0,100)) +
+  theme(legend.position = "top") +
+  scale_color_manual(values = c("#F95A45", "#3AB782")) +
+  ggtitle(label = "연도별 주식 거래량", subtitle = "source : 한국내맘대로연구소") + #제목과 부제
+  ylab("주식량") + #scale_y_continous에서 y축 라벨 변경 가능
+  xlab("연도별 변화") +
+  geom_label() +
+  theme_woons()
