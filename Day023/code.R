@@ -55,6 +55,18 @@ ggplot(myanimal, aes(x= animal, y=value, fill=category)) +
   geom_bar(stat = "identity", width = 0.95) +
   scale_fill_manual(values = c("blue", "purple"))
 
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Group Bar Chart
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+country <- read_csv("group_bar.csv")
+head(country)
+
+ggplot(country, aes(x=year, y=value, fill=country)) +
+  geom_bar(stat = "identity", position = "dodge") +
+  scale_x_continuous(name = "YEAR", 
+                     breaks = seq(min(country$year), max(country$year), 5)) + 
+  scale_fill_manual(values = c("#BADDF9","#90C1F3", "#5F8FD2", "#5F8FD2", "#1D234C", "#010A51"))
+
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Line Chart
@@ -75,3 +87,5 @@ ggplot(stocks, aes(x=year, y=price, group=company, color = label, label = price)
   xlab("연도별 변화") +
   geom_label() +
   theme_woons()
+
+
