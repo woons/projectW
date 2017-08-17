@@ -1,7 +1,9 @@
 # library needed
+# install.packages(c("tidyverse", "stringr", "ggrepel"))
 library(tidyverse)
 library(stringr)
 library(ggrepel)
+
 #--------------------------------------------------
 # R ggplot2 + Guide to Information Graphics (WSK)
 #--------------------------------------------------
@@ -13,36 +15,35 @@ category <- c("house", "house", "outside", "outside", "outside", "outside", "out
 myanimal <- data.frame(animal, value, category)
 
 #sample data set2
-year <- seq(1990, 2017, 5)
-year <- rep(year, 6)
+year <- seq(1990, 2017, 5) %>% 
+  rep(6)
 year <- sort(year)
-year
 price <- sample(100, length(year), replace = TRUE)
-price <- rep(price, 6)
 
-company <- c("KOREA", "USA", "CHINA", "JAPAN", "INDIA", "FRANCE")
-company <- rep(company, 6)
-
+company <- c("KOREA", "USA", "CHINA", "JAPAN", "INDIA", "FRANCE") %>% 
+  rep(6)
 label <- rep(c(1,2,2,2,2,2),6)
 stocks <- data.frame(year, price, company,label)
-dim(stocks)
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # basic bar chart
+# - Y축 스케일 범위
+# - ticks 설정, 차트 제목
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 basic.bar <- ggplot(myanimal, aes(x= reorder(animal, -value), y=value, fill=category)) + 
   geom_bar(stat = "identity")
-
+basic.bar
 # y축 scale 범위 조정
-basic.bar + ylim(0, max(myanimal$value)) #기본적으로 ggplot2에선 y값의 최대값을 잡는다
+basic.bar + xlab("동물의 종류") + ylab("개체수") +
+  ylim(0, 130) #기본적으로 ggplot2에선 y값의 최대값을 잡는다
 
 # y축 scale 범위 조정 및 ticks 조절 (y 범위 조절의 다른 방법)
 # scale_y_continous 함수 안에서 많은 것들을 컨트롤 할 수 있음
 basic.bar + scale_y_continuous(breaks = seq(0, max(myanimal$value), 10), # for ticks
                                limits = c(0, max(myanimal$value)), # for range yAxis
-                               name = "MY ANIMAL", # name of yAxis
-                               position = "left") # yAxis position left(default) or right
-
+                               name = "value", # name of yAxis
+                               position = "left") +
+  scale_x_discrete(labels = abbreviate) #x축 긴 이름 줄임
 # title of chart
 basic.bar + ggtitle("What I like Animals", "source : 1997-2017") # main, sub title
 
@@ -57,15 +58,19 @@ ggplot(myanimal, aes(x= animal, y=value, fill=category)) +
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 # Group Bar Chart
+# - group bar color
+# - data structure
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 country <- read_csv("group_bar.csv")
 head(country)
 
+#차트 만들기 색은 (Adobe Color CC)
 ggplot(country, aes(x=year, y=value, fill=country)) +
-  geom_bar(stat = "identity", position = "dodge") +
+  geom_bar(stat = "identity", position = "dodge", width = 4) +
   scale_x_continuous(name = "YEAR", 
                      breaks = seq(min(country$year), max(country$year), 5)) + 
-  scale_fill_manual(values = c("#BADDF9","#90C1F3", "#5F8FD2", "#5F8FD2", "#1D234C", "#010A51"))
+  scale_fill_manual(values = c("#EAEFB9","#D1DCBC", "#90AA9D", "#3D6070", "#183442", "#002240")) +
+  ylab("VALUE")
 
 
 #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -88,4 +93,8 @@ ggplot(stocks, aes(x=year, y=price, group=company, color = label, label = price)
   geom_label() +
   theme_woons()
 
-
+pool <- c("그리스도敎", "Islam敎", "拉拉隊", "함무라비法典", "니나니노", "Orientalism")
+pattern<-"^\\p{Han}+$"
+is.hanja <- grep(pattern,pool,perl=T)
+is.hanja
+unlist(str_extract_all(pool, pattern))
