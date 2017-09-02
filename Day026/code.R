@@ -60,3 +60,16 @@ list.edge.attributes(net1)
 summary(net1 %e% "rndval")
 summary(get.edge.attribute(net1, "rndval"))
 
+netval1 <- rbind(c(0,2,3,0,0),
+                 c(0,0,3,1,0),
+                 c(0,1,0,0,0),
+                 c(0,0,0,0,0),
+                 c(0,0,2,0,0))
+
+netval1 <- network(netval1, matrix.type = "adjacency",
+                   ignore.eval = FALSE, names.eval = "like")
+
+network.vertex.names(netval1) <- c("A", "B", "C", "D", "E")
+list.edge.attributes(netval1)
+get.edge.attribute(netval1, "like")
+
