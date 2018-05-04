@@ -19,7 +19,6 @@ ggmap(map_13) +
   geom_point(aes(x=Longitude, y=Latitude, colour = category), data = res) +
   facet_wrap(~category)
 
-
 # Use base_layer argument to ggmap() to specify data and x, y mappings
 ggmap(corvallis_map_bw, base_layer = ggplot(sales, aes(lon, lat))) +
   geom_point(aes(color = year_built))
